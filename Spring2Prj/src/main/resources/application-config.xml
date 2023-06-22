@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+		
+		<bean id="helloService" class="com.example.myapp.aop.HelloService"></bean>
+		<bean id="helloController" class="com.example.myapp.aop.HelloController">
+			<property name="helloService" ref="helloService"/>
+		</bean>
+		<bean id="helloLog" class="com.example.myapp.aop.HelloLog"/>
+ 		
+ 		<aop:config>
+			<aop:pointcut expression="execution(* com.example..HelloService.sayHello(*))" id="hello"/>
+			<!-- execution쓰는 이유-> 메서드 레벨로 의존성 주입하려면 execution expression이 되어야 함 -->
+			<!-- (*) 갯수하나만 (..) 매개변수 갯수 상관없이 -->
+			<aop:aspect ref="helloLog">
+				<aop:before pointcut-ref="hello" method="log"/>
+			</aop:aspect>		
+		</aop:config> 
+		
+</beans>
