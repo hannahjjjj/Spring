@@ -7,10 +7,17 @@ public class HelloService implements IHelloService{
 	@Override
 	public String sayHello(String name) {
 //		HelloLog.log(); //횡단관점<-AOP는 이것도 없애자.
-		return "Hello~~" + name;
+		String message = "Hello~" + name;
+		System.out.println("HelloService.sayHello() 실행");
+		return message;
 	}
 	@Override
-	public String sayGoodBye(String name) {
-		return "GoodBye~~"+name;
+	public String sayGoodbye(String name) {
+		String message = "Goodbye~" + name;
+		System.out.println("HelloService.sayGoodbye() 실행");
+		if(Math.random()<0.5) {
+			throw new RuntimeException("Goodbye Exception");
+		}
+		return message;
 	}
 }

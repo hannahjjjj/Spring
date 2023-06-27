@@ -11,6 +11,8 @@ public class HelloMain {
 		HelloController controller = context.getBean(HelloController.class);
 		controller.hello("홍길동");
 		System.out.println("===============================");
+		controller.goodbye("이순신");
+		System.out.println("===============================");
 		context.close();
 		
 	}

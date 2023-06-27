@@ -9,7 +9,10 @@ public class HelloController {
 	
 
 	public void hello(String name) {
-		String result = helloService.sayHello(name);
-		System.out.println(result);
+		System.out.println("HelloController " + helloService.sayHello(name));
+	}
+	
+	public void goodbye(String name) {
+		System.out.println("HelloController " + helloService.sayGoodbye(name));
 	}
 }

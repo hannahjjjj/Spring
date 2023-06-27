@@ -21,6 +21,8 @@
 		name은 set메서드의 이름 (변수) 넣기
 	</bean> -->
 	
+	
+	
 
 	<bean id="person" class="com.example.myapp.Person"/>
 	<bean id="personBean" class="com.example.myapp.Person">
