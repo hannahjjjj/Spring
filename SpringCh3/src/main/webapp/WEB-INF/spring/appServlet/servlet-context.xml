@@ -16,7 +16,7 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/WEB-INF/resources/**" location="/WEB-INF/resources/**" />
 	<resources location="/images/" mapping="/images/**"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
@@ -25,7 +25,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.example.myapp.controller" />
+	<view-controller path="/" view-name="home"/>
+	
+	<context:component-scan base-package="com.example.myapp.dao.controller" />
 	
 	
 </beans:beans>

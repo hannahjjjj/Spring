@@ -66,6 +66,6 @@ ${message}
 </tr>
 </table>
 <a href="update?empid=${emp.employeeId}">수정하기</a>
-<a href="delte?empid=${emp.employeeId}">삭제하기</a>
+<a href="delete?empid=${emp.employeeId}">삭제하기</a>
 </body>
 </html>

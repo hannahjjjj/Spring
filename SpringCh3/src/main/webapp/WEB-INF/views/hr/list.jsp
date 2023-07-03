@@ -26,8 +26,8 @@
 </tr>
 <c:forEach var="emp" items = "${empList}">
 <tr>
-	<c:url var="empDeatilsURI" value="/hr/${emp.employeeId}"/>
-	<td><a href="${empDatailsURI}">${emp.employeeId}</a></td>
+	<c:url var="empDetailsURI" value="/hr/${emp.employeeId}"/>
+	<td><a href="${empDetailsURI}">${emp.employeeId}</a></td>
 	<td>${emp.firstName}</td>
 	<td>${emp.lastName}</td>
 	<td>${emp.email}</td>

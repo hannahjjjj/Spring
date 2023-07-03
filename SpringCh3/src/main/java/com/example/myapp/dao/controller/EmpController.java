@@ -1,4 +1,4 @@
-package com.example.myapp.controller;
+package com.example.myapp.dao.controller;
 
 
 import java.util.List;
@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.myapp.jdbc.EmpVO;
-import com.example.myapp.jdbc.IEmpService;
+import com.example.myapp.dao.EmpVO;
+import com.example.myapp.dao.IEmpService;
+
+
 
 @Controller
 @RequestMapping("/hr")
@@ -34,7 +36,7 @@ public class EmpController {
 			result = empService.getEmpCount(deptid);
 		}
 		model.addAttribute("count",result); //결과를 model에 저장 
-		return "/hr/count"; // view로 리턴 WEB-INF/views/hr/count.jsp파일
+		return "hr/count"; // view로 리턴 WEB-INF/views/hr/count.jsp파일
 	}
 	
 	@RequestMapping("/list") 	
@@ -90,12 +92,12 @@ public class EmpController {
 		return "redirect:/hr/"+emp.getEmployeeId();
 	}
 	
-	   @RequestMapping(value="/delete", method=RequestMethod.GET)
-	   public String deleteEmp(int empid, Model model) {
-	      model.addAttribute("emp", empService.getEmpInfo(empid));
-	      return "/hr/deleteform";
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public String deleteEmp(int empid, Model model) {
+	     model.addAttribute("emp", empService.getEmpInfo(empid));
+	     return "/hr/deleteform";
 	   }
-	
+
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public String deleteEmp(int empid,String email, Model model, RedirectAttributes redirectAttrs) {
 		try {

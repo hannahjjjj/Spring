@@ -1,9 +1,10 @@
-package com.example.myapp.jdbc;
+package com.example.myapp.dao;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class EmpService implements IEmpService {
 	
 	@Autowired
+	@Qualifier("IEmpRepository")
 	IEmpRepository empRepository;
 	
 	@Override

@@ -1,4 +1,4 @@
-package com.example.myapp.jdbc;
+package com.example.myapp.dao;
 
 import java.sql.Date;
 
